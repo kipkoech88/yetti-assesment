@@ -16,5 +16,7 @@ Only logged in users can access the home screen and every other user will be red
 - Testing is handled with python's unittest
 ## Logged in screen
 ![homepage](https://github.com/kipkoech88/yetti-assesment/blob/main/127.0.0.1_8000_(Nest%20Hub%20Max).png)
+## Login screen
+![register screen](https://github.com/kipkoech88/yetti-assesment/blob/main/127.0.0.1_8000_register(Nest%20Hub%20Max).png)
 ## Register screen
 ![register screen](https://github.com/kipkoech88/yetti-assesment/blob/main/127.0.0.1_8000_register(Nest%20Hub%20Max).png)
