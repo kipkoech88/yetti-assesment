@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'base',
     'crispy_forms',
     'crispy_bootstrap5',
+    # 'django_nose'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -135,3 +136,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login'
+
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# NOSE_ARGS = [
+#     '--with-coverage',
+#     '--cover-package=base'
+# ]
