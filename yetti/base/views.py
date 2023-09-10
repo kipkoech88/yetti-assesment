@@ -5,8 +5,10 @@ from django.http import HttpResponse
 def home(request):
     return render(request, 'base/home.html')
 
-def register(request):
-    return render(request, 'base/register.html')
+# def register(request):
+#     context = {}
+#     return render(request, 'base/register.html', context)
 
-def login(request):
-    return render(request, 'base/login.html')
+# def login(request):
+#     context = {}
+#     return render(request, 'base/login.html', context)
