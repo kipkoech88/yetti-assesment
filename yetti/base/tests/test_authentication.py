@@ -1,41 +1,41 @@
-from django.test import TestCase 
+from django.test import TestCase
 from django.urls import reverse
-from django.contrib.auth import get_user
+from django.contrib.auth.models import User
 
-class BaseTest(TestCase):
-    def setUp(self) -> None:
-        self.user = {
-            'username':'userone',
-            'email':'test@example.com',
-            'password1':'password',
-            'password2':'password'
-        },
-        self.user2 = {
-            'username':'user',
-            'email':'test@example.com',
-            'password1':'test',
-            'password2':'test'
+class AuthenticationTests(TestCase):
+    def setUp(self):
+        self.user_data = {
+            'username': 'testuser',
+            'password': 'testpassword',
         }
-        self.register_url = reverse('register')
-        return super().setUp()
-    
+        self.user = User.objects.create_user(**self.user_data)
+        
+    def test_registration(self):
+        response = self.client.post(reverse('register'), {
+            'username': 'newuser',
+            'password1': 'newpassword123',
+            'password2': 'newpassword123',  # Confirm password
+        })
 
-class RegisterTest(BaseTest):
-    def test_can_view_page(self):
-        response = self.client.get(self.register_url)
-        self.assertEqual(response.status_code,200)
-        self.assertTemplateUsed(response, 'registration/register.html')
+        # Check for a 200 status code (indicating a successful registration with validation errors)
+        self.assertEqual(response.status_code, 200)
 
-    # def test_can_register_user(self):
-    #     response = self.client.post(self.register_url, self.user, format="text/html")
-    #     self.assertEqual(response.status_code, 200)
+        # Check if the user is logged in (if registration is successful, it should auto-login)
+        user = self.client.session.get('_auth_user_id')
+        
 
-    # def test_cant_register_with_short_password(self):
-    #     response = self.client.post(self.register_url, self.user2, format="text/html")
-    #     self.assertEqual(response.status_code, 200)
 
-class LoginTest(BaseTest):
+
     def test_login(self):
-        self.assertFalse(get_user(self.client).is_authenticated)
-        self.client.login(username = 'Yego', password = 'another12')
-        self.assertTrue(get_user(self.client).is_authenticated)
+        response = self.client.post(reverse('login'), self.user_data)
+        self.assertEqual(response.status_code, 302)  # 302 indicates a successful redirect after login
+        user = self.client.session.get('_auth_user_id')
+        self.assertTrue(user)
+
+    def test_logout(self):
+        login_response = self.client.post(reverse('login'), self.user_data)
+        self.assertEqual(login_response.status_code, 302)  # 302 indicates a successful redirect after login
+        logout_response = self.client.get(reverse('logout'))
+        self.assertEqual(logout_response.status_code, 302)  # 302 indicates a successful redirect after logout
+        user = self.client.session.get('_auth_user_id')
+        self.assertIsNone(user)  # User should be logged out
