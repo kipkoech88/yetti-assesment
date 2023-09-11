@@ -43,3 +43,4 @@ Only logged-in users can access the home screen and every other user will be red
 14. Login again to verify everything works correctly
 15. You can access the admin's site through [localhost:8000/admin](http://127.0.0.1:8000/admin)
 16. To run the test, in the terminal, run `python manage.py test`
+17. **Important: if you are using python3, you might have to use `python3 `  instead of `python` for example `python3 manage.py runserver`
