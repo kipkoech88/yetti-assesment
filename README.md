@@ -24,7 +24,7 @@ Only logged-in users can access the home screen and every other user will be red
 ## Prerequisites
 - Have Python3 installed on your PC
 - Have pip installed
-- 
+- Know how to work with command line
 
 ## How to get started
 1. Fork this repository
