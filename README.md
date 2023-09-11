@@ -36,7 +36,7 @@ Only logged-in users can access the home screen and every other user will be red
 7. `python manage.py makemigrations` to apply migrations
 8. `python manage.py migrate`
 9. `python manage.py runserver` to run a local server
-10. Open your browser on [localhost 8000](http://127.0.0.1:8000/) to access the website
+10. Open your browser on [localhost:8000](http://127.0.0.1:8000/) to access the website
 11. You'll get directed to the login page, but you don't have an account, so click, register
 12. After creating an account, you'll be automatically redirected to homepage
 13. You can logout, and you'll be redirected to the login page
