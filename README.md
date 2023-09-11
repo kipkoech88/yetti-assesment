@@ -30,8 +30,8 @@ Only logged-in users can access the home screen and every other user will be red
 1. Fork this repository
 2. Clone this repository
 3. `cd yetti-assesment`
-4. `cd yetti`
-5. `pip install -r requirements.txt`
+4. `pip install -r requirements.txt`
+5. `cd yetti`
 6. `python manage.py migrate`
 7. `python manage.py makemigrations` to apply migrations
 8. `python manage.py migrate`
