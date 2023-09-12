@@ -27,7 +27,7 @@ Only logged-in users can access the home screen and every other user will be red
 - Know how to work with command line
 
 ## How to get started
-1. Fork this repository
+1. Fork this repository and clone the forked repository Or
 2. Clone this repository
 3. `cd yetti-assesment`
 4. `pip install -r requirements.txt`
